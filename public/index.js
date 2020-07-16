@@ -1,11 +1,13 @@
 const defaultHeader = `http://localhost:3000/`;
 
+let localcache = [];
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const urlInput = document.getElementById('urlinput');
     const button = document.getElementById('submitbutton');
 
     button.onclick = () => {
-        console.log(urlInput.value);
         fetch('http://localhost:3000', {
             method: 'POST',
             headers: {
@@ -23,14 +25,14 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 })
 
-function copyText(text) {
-    const el = document.createElement('textarea');
-    el.value = text;
-    document.body.appendChild(el);
-    el.select();
-    document.execCommand('copy');
-    document.body.removeChild(el);
+
+function addToLocalCache(original, shortened) {
+    localcache.push({
+        original: original,
+        shortened: shortened
+    })
 }
+
 
 function createCard(original, shortened) {
     const list = document.getElementById('list');
@@ -44,4 +46,16 @@ function createCard(original, shortened) {
             </div>
         </div>`
     );
+    addToLocalCache(original, shortened);
+    console.log(localcache);
+}
+
+
+function copyText(text) {
+    const el = document.createElement('textarea');
+    el.value = text;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
 }

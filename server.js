@@ -33,7 +33,6 @@ app.get('/:id', (req, res) => {
 
 // CREATE SHORTENED URL
 app.post('/', (req, res) => {
-    console.log(req);
     createURL(req.body.url).then ( (url) => {
         res.send({
             'url': url
