@@ -1,4 +1,4 @@
-const defaultHeader = `http://localhost:3000/`;
+const defaultHeader = `https://lybit.herokuapp.com/`;
 
 let localcache = [];
 
@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const button = document.getElementById('submitbutton');
 
     button.onclick = () => {
-        fetch('http://localhost:3000', {
+        fetch(defaultHeader, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
