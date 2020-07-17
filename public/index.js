@@ -1,5 +1,5 @@
-//const defaultHeader = `https://lybit.herokuapp.com/`;
-const defaultHeader = `http://localhost:3000/`;
+const defaultHeader = `https://lybit.herokuapp.com/`;
+// const defaultHeader = `http://localhost:3000/`;
 let localcache = [];
 
 window.onbeforeunload = closingCode;
@@ -10,11 +10,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const clearButton = document.getElementById('clearbutton');
 
     const json = JSON.parse(localStorage.getItem('LocalUrlCache'));
-
-    for(let i = json.length - 1; i >= 0; i--) {
-        let element = json[i];
-        console.log(element.title);
-        createCard(element.title, element.original, element.shortened);
+    if (json != null) {
+        for(let i = json.length - 1; i >= 0; i--) {
+            let element = json[i];
+            console.log(element.title);
+            createCard(element.title, element.original, element.shortened);
+        }
     }
    
     button.onclick = () => {
