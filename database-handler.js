@@ -15,7 +15,7 @@ function connectToServer(callback) {
         if (err) console.log('MongoDb Error: ', err);
         _db = client.db('urldb');
         return callback(err);
-    });
+    })
 };
 
 // Returns connected db instance
