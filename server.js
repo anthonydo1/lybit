@@ -16,6 +16,7 @@ app.set('view engine', 'ejs');
 // MONGODB SERVER CONNECTION
 connectToServer((err) => {
     if (err) console.log(err);
+    console.log('Connected to MongoDb');
 })
 
 // DEFAULT LANDING PAGE
