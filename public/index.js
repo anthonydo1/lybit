@@ -31,6 +31,7 @@ function addToLocalCache(original, shortened) {
         original: original,
         shortened: shortened
     })
+    console.log(localcache.json());
 }
 
 
