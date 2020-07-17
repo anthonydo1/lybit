@@ -4,8 +4,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const app = express();
-const PORT = 3000;
-const header = `http://localhost:${PORT}/`;
+const PORT = process.env.PORT || 3000;
 
 
 // MIDDLEWARE
