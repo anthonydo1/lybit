@@ -12,6 +12,7 @@ let _db;
 // MongoDb server connection
 function connectToServer(callback) {
     MongoClient.connect(url, { useUnifiedTopology: true, useNewUrlParser: true, }, (err, client) => {
+        if (err) console.log('MongoDb Error: ', err);
         _db = client.db('urldb');
         return callback(err);
     });
